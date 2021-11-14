@@ -14,7 +14,13 @@
       </select>
     </label>
     <div class="col-sm-3">
-      <input type="number" [formControl]="form1" class="form-control" />
+      <input
+        #value1
+        (change)="getChange1(value1)"
+        type="number"
+        [formControl]="form1"
+        class="form-control"
+      />
     </div>
   </div>
 
@@ -32,7 +38,13 @@
       </select>
     </label>
     <div class="col-sm-3">
-      <input type="number" class="form-control" [formControl]="form2" />
+      <input
+        #value2
+        (change)="getChange2(value2)"
+        type="number"
+        class="form-control"
+        [formControl]="form2"
+      />
     </div>
   </div>
 

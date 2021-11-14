@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class RatesService {
   url =
-    'http://api.exchangeratesapi.io/v1/latest?access_key=1eca10b9e7f58e6dbba48771dbcbddbb';
+    'http://api.exchangeratesapi.io/v1/latest?access_key=a94f29dc89a2374583467c17939674da';
 
   constructor(private http: HttpClient) {}
 
