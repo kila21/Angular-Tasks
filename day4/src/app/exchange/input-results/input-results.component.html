@@ -1,0 +1,49 @@
+<hr />
+<hr />
+<div class="container">
+  <div *ngFor="let input of countInputs" class="col-sm-7 container-child">
+    <label class="control-label">
+      <select #selectedLabel (change)="getLabelValue(selectedLabel.value)">
+        <option *ngFor="let rate of ratesObject | keyvalue">
+          {{ rate.key }}
+        </option>
+      </select>
+    </label>
+
+    <div class="row col-sm-5">
+      <input
+        #value
+        (change)="changes(value.value)"
+        class="form-control"
+        [formControl]="form1"
+        type="number"
+      />
+    </div>
+  </div>
+  <br />
+  <br />
+
+  <button (click)="addCurrency()">Add Currency</button>
+
+  <br />
+  <br />
+  <br />
+  <br />
+
+  <h3 class="text-center">Pick Currency you want to exchange</h3>
+  <hr />
+  <div class="container">
+    <div class="col-sm-7 container-child">
+      <label class="control-label">
+        <select #inputValue (change)="getInputValue(inputValue.value)">
+          <option *ngFor="let rate of ratesObject | keyvalue">
+            {{ rate.key }}
+          </option>
+        </select>
+      </label>
+      <div class="row col-sm-5">
+        <input [formControl]="form2" type="number" class="form-control" />
+      </div>
+    </div>
+  </div>
+</div>
