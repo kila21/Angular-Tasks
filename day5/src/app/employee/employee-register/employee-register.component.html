@@ -1,0 +1,22 @@
+<form [formGroup]="form" class="container">
+  <div class="child">
+    <label>Name:</label>
+    <input formControlName="name" type="text" />
+  </div>
+
+  <div class="child">
+    <label>Salary:</label>
+    <input formControlName="salary" type="number" min="1000" />
+  </div>
+
+  <div class="child">
+    <label>Age:</label>
+    <input formControlName="age" type="number" min="18" />
+  </div>
+
+  <div class="child">
+    <button [disabled]="!this.form.valid" (click)="onRegister()">
+      Register
+    </button>
+  </div>
+</form>

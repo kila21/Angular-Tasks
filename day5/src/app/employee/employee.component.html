@@ -1,0 +1,53 @@
+<app-employee-register></app-employee-register>
+<br />
+<br />
+<hr />
+<div class="container">
+  <h1>Task 2</h1>
+  <div class="child">
+    <label>Choose ID of User(1-12)</label>
+    <input #value type="number" value="1" />
+  </div>
+  <button (click)="getUser(value.value)">ADD</button>
+  <div>
+    <div *ngFor="let info of valueObject | keyvalue">
+      <strong>{{ info.key }}: </strong>
+      <em>{{ info.value }}</em>
+    </div>
+  </div>
+
+  <br />
+  <br />
+  <hr />
+</div>
+
+<div class="container">
+  <div class="child">
+    <label>Update User :</label>
+    <input #value2 type="number" value="1" />
+  </div>
+
+  <div class="form" [formGroup]="form">
+    <div>
+      <label>Name: </label>
+      <input formControlName="name" type="text" />
+    </div>
+
+    <div>
+      <label>Salary: </label>
+      <input formControlName="salary" type="number" min="1000" value="1000" />
+    </div>
+
+    <div>
+      <label>Age: </label>
+      <input formControlName="age" type="number" min="18" value="18" />
+    </div>
+  </div>
+  <button
+    [disabled]="!this.form.valid"
+    (click)="updateUser(value2.value, form.value)"
+  >
+    Update
+  </button>
+  <p *ngIf="showText"><strong>Succesfuly Updated</strong></p>
+</div>
