@@ -35,3 +35,40 @@
     color: green;
   }
 }
+
+.page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .page {
+    background-color: blue;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-right: 2px;
+    cursor: pointer;
+  }
+}
+
+.users-div {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  .users {
+    margin-right: 15px;
+    border: 1px solid grey;
+    min-width: 350px;
+    height: 200px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

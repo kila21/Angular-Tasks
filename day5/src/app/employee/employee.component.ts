@@ -9,7 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class EmployeeComponent implements OnInit {
   constructor(private http: HttpClient) {}
-  valueObject: user;
+  valueObject: user[];
   // showValue = false;
   updateUserObject: user;
   form: FormGroup = new FormGroup({
@@ -19,6 +19,7 @@ export class EmployeeComponent implements OnInit {
   });
   showText = false;
   showTextDelete = false;
+  pageObject: user;
   ngOnInit(): void {}
 
   getUser(id: number) {
@@ -47,6 +48,15 @@ export class EmployeeComponent implements OnInit {
       }
       console.log(data);
     });
+  }
+
+  getPage(num: number) {
+    this.http
+      .get(`https://reqres.in/api/users?page=${num}`)
+      .subscribe((data) => {
+        this.pageObject = data['data'];
+        console.log(this.pageObject);
+      });
   }
 }
 

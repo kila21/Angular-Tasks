@@ -55,8 +55,28 @@
 <div class="container">
   <h1>Delete User</h1>
   <input #value3 type="number" value="1" />
-  <button (click)="deleteUser(value3.value)"></button>
+  <button (click)="deleteUser(value3.value)">Delete</button>
   <p *ngIf="showTextDelete">
     Succesfuly Deleted user with ID: {{ value3.value }}
   </p>
+</div>
+
+<hr />
+<hr />
+
+<div>
+  <div class="users-div">
+    <div class="users" *ngFor="let userObject of pageObject">
+      <div *ngFor="let user of userObject | keyvalue">
+        <strong>{{ user.key }}: </strong>
+        <em>{{ user.value }}</em>
+      </div>
+    </div>
+  </div>
+
+  <br />
+  <div class="page-container">
+    <div (click)="getPage(1)" class="page">1</div>
+    <div (click)="getPage(2)" class="page">2</div>
+  </div>
 </div>
