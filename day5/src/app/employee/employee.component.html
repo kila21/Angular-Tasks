@@ -51,3 +51,12 @@
   </button>
   <p *ngIf="showText"><strong>Succesfuly Updated</strong></p>
 </div>
+
+<div class="container">
+  <h1>Delete User</h1>
+  <input #value3 type="number" value="1" />
+  <button (click)="deleteUser(value3.value)"></button>
+  <p *ngIf="showTextDelete">
+    Succesfuly Deleted user with ID: {{ value3.value }}
+  </p>
+</div>

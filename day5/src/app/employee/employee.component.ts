@@ -14,10 +14,11 @@ export class EmployeeComponent implements OnInit {
   updateUserObject: user;
   form: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
-    salary: new FormControl('', Validators.required),
-    age: new FormControl('', Validators.required),
+    salary: new FormControl(1000, Validators.required),
+    age: new FormControl(18, Validators.required),
   });
   showText = false;
+  showTextDelete = false;
   ngOnInit(): void {}
 
   getUser(id: number) {
@@ -39,11 +40,14 @@ export class EmployeeComponent implements OnInit {
       });
   }
 
-  // deleteID(id: number) {
-  //   this.http.delete('https://reqres.in/api/users/2').subscribe((data) => {
-  //     console.log(data);
-  //   });
-  // }
+  deleteUser(id: number) {
+    this.http.delete(`https://reqres.in/api/users/${id}`).subscribe((data) => {
+      if (data === null) {
+        this.showTextDelete = true;
+      }
+      console.log(data);
+    });
+  }
 }
 
 class user {
